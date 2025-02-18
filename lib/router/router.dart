@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:gorouter/data/user.dart';
 import 'package:gorouter/pages/age.dart';
+import 'package:gorouter/pages/back.dart';
 import 'package:gorouter/pages/child_page.dart';
 import 'package:gorouter/pages/home_page.dart';
+import 'package:gorouter/pages/login.dart';
 import 'package:gorouter/pages/profile_page.dart';
 import 'package:gorouter/pages/user_page.dart';
 import 'package:gorouter/router/route_names.dart';
@@ -11,12 +14,24 @@ class RouterClass {
   final router = GoRouter(
     errorPageBuilder: (context, state) {
       return MaterialPage<dynamic>(
-          child: Scaffold(
-        body: Center(
-          child: Text("This page is not found!"),
+        child: Scaffold(
+          body: Center(
+            child: Text("This page is not found!"),
+          ),
         ),
-      ));
+      );
     },
+
+    //redirect to login page if user is not logged in
+    // redirect: (context, state) {
+    //   bool isUserLoggedIn = UserDate.isUserLoggedIn;
+    //   if (isUserLoggedIn) {
+    //     return "/";
+    //   } else {
+    //     return "/login";
+    //   }
+    // },
+
     initialLocation: "/",
     routes: [
       // Home Page
@@ -82,9 +97,25 @@ class RouterClass {
 
           return AgePage(age: age);
         },
+      ),
+
+      //Login Page
+      GoRoute(
+        // name: "child",
+        path: "/login",
+        builder: (context, state) {
+          return const LoginPage();
+        },
+      ),
+
+      //Back Page
+      GoRoute(
+        // name: "Back Page",
+        path: "/back",
+        builder: (context, state) {
+          return const BackPage();
+        },
       )
-      
     ],
-    
   );
 }
