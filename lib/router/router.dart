@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:gorouter/pages/age.dart';
 import 'package:gorouter/pages/child_page.dart';
 import 'package:gorouter/pages/home_page.dart';
 import 'package:gorouter/pages/profile_page.dart';
 import 'package:gorouter/pages/user_page.dart';
+import 'package:gorouter/router/route_names.dart';
 
 class RouterClass {
   final router = GoRouter(
@@ -28,7 +30,7 @@ class RouterClass {
 
       // Profile Page
       GoRoute(
-        name: "profile",
+        name: RouteNamesClass.profile,
         path: "/profile",
         builder: (context, state) {
           return const ProfilePage();
@@ -43,14 +45,46 @@ class RouterClass {
           )
         ],
       ),
-      //user page
+
+      //user page extra parameter
+
       GoRoute(
         path: "/user",
         builder: (context, state) {
-          final String name = state.extra as String;
-          return UserPage(userName: name);
+          final name = (state.extra as Map<String, dynamic>)["name"] as String;
+
+          return UserPage(
+            userName: name,
+          );
+        },
+      ),
+
+      //user page path parameter
+
+      GoRoute(
+        path: "/user/:name",
+        builder: (context, state) {
+          return UserPage(
+            userName: state.pathParameters["name"]!,
+          );
+        },
+      ),
+
+      //age page
+
+      GoRoute(
+        path: "/age",
+        name: RouteNamesClass.age,
+        builder: (context, state) {
+          final int age = state.uri.queryParameters["age"] == null
+              ? 0
+              : int.parse(state.uri.queryParameters["age"]!);
+
+          return AgePage(age: age);
         },
       )
+      
     ],
+    
   );
 }

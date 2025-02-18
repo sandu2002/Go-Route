@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class UserPage extends StatelessWidget {
-  final String userName;
-
-  const UserPage({
+class AgePage extends StatelessWidget {
+  final int age;
+  const AgePage({
     super.key,
-    required this.userName,
-    });
+    required this.age});
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: Center(
         child: Text(
-          "User Name: $userName"),
+          "Age is: $age"
+        ),
       ),
     );
   }
