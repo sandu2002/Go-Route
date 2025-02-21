@@ -8,7 +8,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Text(
-          "Here is the Login Page"
+          "Login Page"
         ),
       ),
     );
