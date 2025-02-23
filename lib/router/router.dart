@@ -16,7 +16,7 @@ class RouterClass {
       return MaterialPage<dynamic>(
         child: Scaffold(
           body: Center(
-            child: Text("This page not found!"),
+            child: Text("This page is not found!"),
           ),
         ),
       );
