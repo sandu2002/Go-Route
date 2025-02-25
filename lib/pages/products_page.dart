@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:gorouter/data/products.dart';
+import 'package:gorouter/router/route_names.dart';
 
 
 class AllProducts extends StatelessWidget {
@@ -22,14 +24,23 @@ class AllProducts extends StatelessWidget {
               color: Colors.grey[200],
               borderRadius: BorderRadius.circular(10),
             ),
-            child: ListTile(
-              contentPadding: const EdgeInsets.all(10),
-              title: Text(product.title),
-              trailing: Text('\$${product.price}'),
-              leading: Image.network(
-                product.imageUrl,
-                width: 100,
-                fit: BoxFit.cover,
+            child: GestureDetector(
+              onTap: () {
+                GoRouter.of(context).pushNamed(
+                  RouteNamesClass.singleProduct,
+                  extra: product,
+                
+                );
+              },
+              child: ListTile(
+                contentPadding: const EdgeInsets.all(10),
+                title: Text(product.title),
+                trailing: Text('\$${product.price}'),
+                leading: Image.network(
+                  product.imageUrl,
+                  width: 100,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           );
