@@ -6,6 +6,7 @@ import 'package:gorouter/pages/back.dart';
 import 'package:gorouter/pages/child_page.dart';
 import 'package:gorouter/pages/home_page.dart';
 import 'package:gorouter/pages/login.dart';
+import 'package:gorouter/pages/products_page.dart';
 import 'package:gorouter/pages/profile_page.dart';
 import 'package:gorouter/pages/user_page.dart';
 import 'package:gorouter/router/route_names.dart';
@@ -115,7 +116,16 @@ class RouterClass {
         builder: (context, state) {
           return const BackPage();
         },
-      )
+      ),
+
+      //product page
+      GoRoute(
+        name: RouteNamesClass.products,
+        path: "/products",
+        builder: (context, state) {
+          return const AllProducts();
+        },
+      ),
     ],
   );
 }
