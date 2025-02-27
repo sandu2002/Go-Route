@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
                 "age": "24"
               });
             },
-            child: Text("Go to age page"),
+            child: Text("Go to age pages"),
           ),
 
           //back page
@@ -57,13 +57,13 @@ class HomePage extends StatelessWidget {
             onPressed: () {
               GoRouter.of(context).push("/back");
             },
-            child: Text("Go to back page"),
+            child: Text("Go to back pages"),
           ),
           ElevatedButton(
             onPressed: () {
               GoRouter.of(context).pushNamed(RouteNamesClass.products);
             },
-            child: Text("Go to product page"),
+            child: Text("Go to product pages"),
           ),
         ],
       ),
