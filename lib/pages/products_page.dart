@@ -12,7 +12,7 @@ class AllProducts extends StatelessWidget {
     final productsList = ProductData().productsList;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('All in Products'),
+        title: const Text('All in Products page'),
       ),
       body: ListView.builder(
         itemCount: productsList.length,
