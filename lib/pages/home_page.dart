@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
                 "age": "24"
               });
             },
-            child: Text("Go to age pages"),
+            child: Text("Go to the age pages"),
           ),
 
           //back page
